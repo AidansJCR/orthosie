@@ -2,5 +2,5 @@ Django>=1.10
 djangorestframework
 python-memcached
 dj-database-url==0.4.2
-psycopg==2.7.3.2
+psycopg2==2.7.3.2
 gunicorn==19.7.1
