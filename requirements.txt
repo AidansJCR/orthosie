@@ -1,4 +1,4 @@
-Django>=1.10
+Django==1.10
 djangorestframework
 python-memcached
 dj-database-url==0.4.2
