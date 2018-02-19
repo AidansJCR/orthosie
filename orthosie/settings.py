@@ -1,4 +1,5 @@
 import os
+import dj_database_url
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -6,7 +7,7 @@ SECRET_KEY = 'c+#8x$+zfq00i(z@6_81ht9i-0dcp53iyl_bp$mr^f22k600i*'
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["aidansshoppos.herokuapp.com", "localhost"]
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -115,11 +116,7 @@ PRINTER = '/dev/null'
 RECEIPT_HEADER = ['Header 1', 'Header 2']
 RECEIPT_FOOTER = ['Footer 1', 'Footer 2']
 
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION': '127.0.0.1:11211',
-    }
-}
+db_from_env = dj_database_url.config(conn_max_age=500)
 
-TEST_RUNNER = 'django.test.runner.DiscoverRunner'
+if db_from_env:
+    DATABASES['default'].update(db_from_env)
