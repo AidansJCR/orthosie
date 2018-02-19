@@ -73,6 +73,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
